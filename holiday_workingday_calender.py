@@ -50,8 +50,8 @@ def get_working_days(start, end, cursor):
     csv_data = read_controls()
     for i in range(delta.days + 1):
         day = start + timedelta(days=i)
-        if day.weekday() != int(csv_data['WKND_1']) or day.weekday() != int(csv_data['WKND_2']):
-            cursor.execute(f"SELECT * FROM holiday_calendar WHERE holiday_date = '{day}' and partial_day = false")
+        if day.weekday() not in (int(csv_data['WKND_1']), int(csv_data['WKND_2'])):
+            cursor.execute(f"SELECT * FROM holiday_calendar WHERE holiday_date = '{day}' and partial_day = true")
             data = cursor.fetchone()
             if data is None:
                 cursor.execute('insert into working_days_copy(work_date, close_time, parital_day) values (%s, %s, %s)',
