@@ -1,0 +1,176 @@
+{
+   "us": {
+      "2022": [
+         {
+            "name": "Martin Luther King, Jr. Day",
+            "partialDay": false,
+            "date": "2022-01-17T00:00:00"
+         },
+         {
+            "name": "George Washington's Birthday",
+            "partialDay": false,
+            "date": "2022-02-21T00:00:00"
+         },
+         {
+            "name": "Good Friday",
+            "partialDay": false,
+            "date": "2022-04-15T00:00:00"
+         },
+         {
+            "name": "Memorial Day",
+            "partialDay": false,
+            "date": "2022-05-30T00:00:00"
+         },
+         {
+            "name": "Independence Day",
+            "partialDay": false,
+            "date": "2022-07-04T00:00:00"
+         },
+         {
+            "name": "Labor Day",
+            "partialDay": false,
+            "date": "2022-09-05T00:00:00"
+         },
+         {
+            "name": "Thanksgiving Day",
+            "partialDay": false,
+            "date": "2022-11-24T00:00:00"
+         },
+         {
+            "name": "Christmas Day",
+            "partialDay": false,
+            "date": "2022-12-26T00:00:00"
+         },
+         {
+            "name": "Day Following Thanksgiving",
+            "partialDay": true,
+            "date": "2022-11-25T00:00:00"
+         },
+         {
+            "name": "Juneteenth National Independence Day",
+            "partialDay": false,
+            "date": "2022-06-20T00:00:00"
+         }
+      ]
+   },
+   "canada": {
+      "2022": [
+         {
+            "name": "New Year's Day",
+            "partialDay": false,
+            "date": "2022-01-03T00:00:00"
+         },
+         {
+            "name": "Family Day",
+            "partialDay": false,
+            "date": "2022-02-21T00:00:00"
+         },
+         {
+            "name": "Good Friday",
+            "partialDay": false,
+            "date": "2022-04-15T00:00:00"
+         },
+         {
+            "name": "Victoria Day",
+            "partialDay": false,
+            "date": "2022-05-23T00:00:00"
+         },
+         {
+            "name": "Canada Day",
+            "partialDay": false,
+            "date": "2022-07-01T00:00:00"
+         },
+         {
+            "name": "Civic Holiday",
+            "partialDay": false,
+            "date": "2022-08-01T00:00:00"
+         },
+         {
+            "name": "Labour Day",
+            "partialDay": false,
+            "date": "2022-09-05T00:00:00"
+         },
+         {
+            "name": "Thanksgiving Day",
+            "partialDay": false,
+            "date": "2022-10-10T00:00:00"
+         },
+         {
+            "name": "Christmas Day",
+            "partialDay": false,
+            "date": "2022-12-26T00:00:00"
+         },
+         {
+            "name": "Boxing Day",
+            "partialDay": false,
+            "date": "2022-12-27T00:00:00"
+         }
+      ]
+   },
+   "uk": {
+      "2022": [
+         {
+            "name": "New Year's Day",
+            "partialDay": false,
+            "date": "2022-01-03T00:00:00"
+         },
+         {
+            "name": "Good Friday",
+            "partialDay": false,
+            "date": "2022-04-15T00:00:00"
+         },
+         {
+            "name": "Easter Monday",
+            "partialDay": false,
+            "date": "2022-04-18T00:00:00"
+         },
+         {
+            "name": "Early May Bank Holiday",
+            "partialDay": false,
+            "date": "2022-05-02T00:00:00"
+         },
+         {
+            "name": "Summer Bank Holiday",
+            "partialDay": false,
+            "date": "2022-08-29T00:00:00"
+         },
+         {
+            "name": "Boxing Day",
+            "partialDay": false,
+            "date": "2022-12-26T00:00:00"
+         },
+         {
+            "name": "Christmas",
+            "partialDay": false,
+            "date": "2022-12-27T00:00:00"
+         },
+         {
+            "name": "Spring Bank Holiday",
+            "partialDay": false,
+            "date": "2022-06-02T00:00:00"
+         },
+         {
+            "name": "Platinum Jubilee Bank Holiday",
+            "partialDay": false,
+            "date": "2022-06-03T00:00:00"
+         },
+         {
+            "name": "Christmas Eve",
+            "partialDay": true,
+            "date": "2022-12-23T00:00:00"
+         },
+         {
+            "name": "New Year's Eve",
+            "partialDay": true,
+            "date": "2022-12-30T00:00:00"
+         }
+      ],
+      "2023": [
+         {
+            "name": "New Year's Day",
+            "partialDay": false,
+            "date": "2023-01-02T00:00:00"
+         }
+      ]
+   }
+}
