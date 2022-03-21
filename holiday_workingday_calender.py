@@ -1,5 +1,6 @@
 import csv
 import json
+import os
 from datetime import timedelta, datetime
 
 import psycopg2 as psycopg2
@@ -38,7 +39,7 @@ def find_holidays():
 
 def read_controls():
     columns = {}
-    with open('Control.csv') as f:
+    with open(f'Control{os.sep}Control.csv') as f:
         reader = csv.DictReader(f)  # read rows into a dictionary format
         for row in reader:  # read a row as {column1: value1, column2: value2,...}
             columns[row['Variable']] = row['Value']
@@ -51,11 +52,16 @@ def get_working_days(start, end, cursor):
     for i in range(delta.days + 1):
         day = start + timedelta(days=i)
         if day.weekday() not in (int(csv_data['WKND_1']), int(csv_data['WKND_2'])):
-            cursor.execute(f"SELECT * FROM holiday_calendar WHERE holiday_date = '{day}' and partial_day = true")
+            cursor.execute(f"SELECT * FROM holiday_calendar WHERE holiday_date = '{day}'")
             data = cursor.fetchone()
             if data is None:
                 cursor.execute('insert into working_days_copy(work_date, close_time, parital_day) values (%s, %s, %s)',
-                               (day, csv_data['PRT_CLS'], True))
+                               (day, None, False))
+            else:
+                if data['partial_day']:
+                    cursor.execute('insert into working_days_copy(work_date, close_time, parital_day) values (%s, %s, '
+                                   '%s)',
+                                   (day, csv_data['PRT_CLS'], data['partial_day']))
     print('Inserted all the working records to the working_days_copy table.')
 
     cursor.execute(f"DELETE FROM working_days")
@@ -75,7 +81,7 @@ def database():
         [object]: Cursor object
     """
     # Read Credentials.json
-    json_data = dict(json.load(open('Credentials.json')))
+    json_data = dict(json.load(open(f'Control{os.sep}Credentials.json')))
 
     # Assign values from control.csv
     db = json_data["database"]
