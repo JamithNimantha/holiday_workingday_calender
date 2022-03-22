@@ -31,7 +31,7 @@ def find_holidays():
             print('Deleting all the records from working_days_copy table.')
             start_date = datetime(int(key), 1, 1)
             end_date = datetime(int(key), 12, 31)
-            get_working_days(start_date, end_date, cursor)
+            get_working_days(start_date, end_date, cursor, key)
 
     else:
         print(f'Error : cannot fetch URL due to Status Code :{response.status_code}')
@@ -46,7 +46,7 @@ def read_controls():
     return columns
 
 
-def get_working_days(start, end, cursor):
+def get_working_days(start, end, cursor, year):
     delta = end - start
     csv_data = read_controls()
     for i in range(delta.days + 1):
@@ -64,7 +64,7 @@ def get_working_days(start, end, cursor):
                                    (day, csv_data['PRT_CLS'], data['partial_day']))
     print('Inserted all the working records to the working_days_copy table.')
 
-    cursor.execute(f"DELETE FROM working_days")
+    cursor.execute(f"delete from working_days where date_part('year', work_date) = '{year}'")
     print('Deleting all the records from working_days table.')
     cursor.execute("SELECT * FROM working_days_copy")
     data = cursor.fetchall()
