@@ -7,10 +7,24 @@ import psycopg2 as psycopg2
 import requests as requests
 from psycopg2.extras import RealDictCursor
 
+headers = {
+    'authority': 'www.tipranks.com',
+    'accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,'
+              'application/signed-exchange;v=b3;q=0.9',
+    'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) '
+                  'Chrome/93.0.4577.82 Safari/537.36',
+    'origin': 'https://www.tipranks.com',
+    'sec-fetch-site': 'same-site',
+    'sec-fetch-mode': 'navigate',
+    'sec-fetch-dest': 'document',
+    'referer': 'https://www.tipranks.com',
+    'accept-language': 'en-US,en;q=0.9,si;q=0.8',
+}
+
 
 def find_holidays():
     cursor = database()
-    response = requests.get('https://www.tipranks.com/api/calendars/holidays/?break=1647721939743')
+    response = requests.get('https://www.tipranks.com/api/calendars/holidays/?break=1647721939743', headers=headers)
     if response.status_code == 200:
         json_data = response.json()
         for key, value in json_data['us'].items():
@@ -20,7 +34,7 @@ def find_holidays():
                 if data is not None:
                     # Update row
                     cursor.execute(
-                        'update holiday_calendar set description = %s, partial_day =%s where holiday_date = %s'
+                        'update holiday_calendar set description = %s, partial_day = %s where holiday_date = %s'
                         , (holiday['name'], holiday['partialDay'], holiday['date']))
                 else:
                     # Insert Row
